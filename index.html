@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 5 Months ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ===================== LOADING SCREEN ===================== -->
+  <div id="loading-screen">
+    <div class="loading-heart">❤</div>
+    <p>loading our story...</p>
+  </div>
+
+  <!-- Ambient floating hearts + glowing particles, populated by JS -->
+  <div id="ambient-layer"></div>
+
+  <!-- ===================== PROGRESS TRACKER ===================== -->
+  <nav id="progress-tracker">
+    <div class="progress-step" data-step="1"><span class="dot"></span><span class="label">Puzzle 1</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="2"><span class="dot"></span><span class="label">Puzzle 2</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="3"><span class="dot"></span><span class="label">Puzzle 3</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="4"><span class="dot"></span><span class="label">Final Letter</span></div>
+  </nav>
+
+  <!-- ===================== HERO / LANDING ===================== -->
+  <section id="hero-section" class="app-section">
+    <div class="glass-card hero-card">
+      <h1 class="hero-title">Happy 5 Months <span class="heart-pulse">❤️</span></h1>
+      <p class="hero-subtitle">I made something special just for you...</p>
+      <button id="begin-btn" class="glow-btn">Begin</button>
+    </div>
+  </section>
+
+  <!-- ===================== PUZZLE 1: MEMORY QUIZ ===================== -->
+  <section id="puzzle1-section" class="app-section hidden">
+    <div class="glass-card quiz-card">
+      <h2>Memory Quiz 💭</h2>
+      <div id="quiz-container"></div>
+
+      <div id="quiz-success" class="hidden success-panel">
+        <div class="success-heart">❤</div>
+        <h2>You did it ❤️</h2>
+        <button class="glow-btn continue-btn" data-next="2">Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PUZZLE 2: SLIDING PUZZLE ===================== -->
+  <section id="puzzle2-section" class="app-section hidden">
+    <div class="glass-card puzzle2-card">
+      <h2>Piece Us Back Together 🧩</h2>
+      <div class="puzzle-stats">
+        <span>Moves: <strong id="move-counter">0</strong></span>
+        <span>Time: <strong id="timer">00:00</strong></span>
+      </div>
+      <div id="sliding-puzzle-grid"></div>
+      <button id="shuffle-btn" class="glow-btn">Shuffle</button>
+
+      <div id="puzzle2-success" class="hidden success-panel">
+        <div class="success-heart">❤</div>
+        <h2>Perfectly Pieced ❤️</h2>
+        <button class="glow-btn continue-btn" data-next="3">Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PUZZLE 3: SECRET CODE ===================== -->
+  <section id="puzzle3-section" class="app-section hidden">
+    <div class="glass-card secret-card">
+      <h2>The Secret Door 🚪</h2>
+      <div class="clues">
+        <p class="clue">🔑 Clue 1: The thing we never stop doing when we're together, even about absolutely nothing.</p>
+        <p class="clue">🔑 Clue 2: A three-digit number that means "I love you" in text-speak.</p>
+        <p class="clue-hint">Combine both clues into one word, no spaces, to open the door.</p>
+      </div>
+      <div class="secret-input-row">
+        <input type="text" id="secret-input" placeholder="Enter the secret code" autocomplete="off">
+        <button id="unlock-btn" class="glow-btn">Unlock</button>
+      </div>
+      <p id="secret-error" class="hidden">Not quite... try again 💭</p>
+    </div>
+
+    <!-- Door opening overlay -->
+    <div id="door-overlay">
+      <div class="door door-left"></div>
+      <div class="door door-right"></div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL LETTER PAGE ===================== -->
+  <section id="final-section" class="app-section hidden">
+    <div id="stars-container"></div>
+
+    <button id="mute-btn" title="Toggle music">🔊</button>
+    <audio id="bg-music" src="music.mp3" loop></audio>
+
+    <div class="glass-card letter-card">
+      <h2 class="letter-heading">My Love,</h2>
+
+      <div id="typewriter-text" class="typewriter"></div>
+
+      <!-- REPLACE THIS LETTER -->
+      <!-- Edit the paragraph below with your own heartfelt message.
+           The JS reads this text and types it out letter by letter,
+           so just replace the sentence — no other code needs to change. -->
+      <p id="letter-content" class="letter-source hidden">
+        Five months ago, my life changed in the best way possible. Every single day with you feels like a new page of a story I never want to end. Thank you for your laughter, your patience, your warmth, and every little "yapping" session that makes my heart feel so full. Here's to five months down, and to a forever's worth still to come. I love you more than words on a screen could ever say.
+      </p>
+
+      <h1 class="final-love">I love you ❤️</h1>
+      <button id="read-again-btn" class="glow-btn">Read Again</button>
+    </div>
+  </section>
+
+  <!-- Confetti canvas, drawn on by JS -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
